@@ -1,38 +1,65 @@
-import * as React from "react";
+"use client"
 
-import { SearchForm } from "@/components/search-form";
-import { VersionSwitcher } from "@/components/version-switcher";
+import * as React from "react"
+
+import { NavMain } from "@/components/nav-main"
+import { NavProjects } from "@/components/nav-projects"
+import { NavUser } from "@/components/nav-user"
+import { TeamSwitcher } from "@/components/team-switcher"
 import {
   Sidebar,
   SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
+  SidebarFooter,
   SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
   SidebarRail,
-} from "@/components/ui/sidebar";
+} from "@/components/ui/sidebar"
+import { GalleryVerticalEndIcon, AudioLinesIcon, TerminalIcon, TerminalSquareIcon, BotIcon, BookOpenIcon, Settings2Icon, FrameIcon, PieChartIcon, MapIcon } from "lucide-react"
 
 // This is sample data.
 const data = {
-  versions: ["ADMIN V2.0", "1.1.0-alpha", "2.0.0-beta1"],
+  user: {
+    name: "shadcn",
+    email: "m@example.com",
+    avatar: "/avatars/shadcn.jpg",
+  },
+  teams: [
+    {
+      name: "Acme Inc",
+      logo: (
+        <GalleryVerticalEndIcon />
+      ),
+      plan: "Enterprise",
+    },
+    {
+      name: "Acme Corp.",
+      logo: (
+        <AudioLinesIcon />
+      ),
+      plan: "Startup",
+    },
+    {
+      name: "Evil Corp.",
+      logo: (
+        <TerminalIcon />
+      ),
+      plan: "Free",
+    },
+  ],
   navMain: [
     {
-      title: "MAIN MENU",
+      title: "Playground",
       url: "#",
+      icon: (
+        <TerminalSquareIcon />
+      ),
+      isActive: true,
       items: [
         {
-          title: "Products",
+          title: "History",
           url: "#",
         },
         {
-          title: "Customer",
-          url: "#",
-        },
-        {
-          title: "Categories",
+          title: "Starred",
           url: "#",
         },
         {
@@ -41,37 +68,118 @@ const data = {
         },
       ],
     },
+    {
+      title: "Models",
+      url: "#",
+      icon: (
+        <BotIcon />
+      ),
+      items: [
+        {
+          title: "Genesis",
+          url: "#",
+        },
+        {
+          title: "Explorer",
+          url: "#",
+        },
+        {
+          title: "Quantum",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Documentation",
+      url: "#",
+      icon: (
+        <BookOpenIcon />
+      ),
+      items: [
+        {
+          title: "Introduction",
+          url: "#",
+        },
+        {
+          title: "Get Started",
+          url: "#",
+        },
+        {
+          title: "Tutorials",
+          url: "#",
+        },
+        {
+          title: "Changelog",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Settings",
+      url: "#",
+      icon: (
+        <Settings2Icon />
+      ),
+      items: [
+        {
+          title: "General",
+          url: "#",
+        },
+        {
+          title: "Team",
+          url: "#",
+        },
+        {
+          title: "Billing",
+          url: "#",
+        },
+        {
+          title: "Limits",
+          url: "#",
+        },
+      ],
+    },
   ],
-};
+  projects: [
+    {
+      name: "Design Engineering",
+      url: "#",
+      icon: (
+        <FrameIcon />
+      ),
+    },
+    {
+      name: "Sales & Marketing",
+      url: "#",
+      icon: (
+        <PieChartIcon />
+      ),
+    },
+    {
+      name: "Travel",
+      url: "#",
+      icon: (
+        <MapIcon />
+      ),
+    },
+  ],
+}
 
-export function AppSidebar({ ...props }) {
+export function AppSidebar({
+  ...props
+}) {
   return (
-    <Sidebar {...props}>
+    <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <VersionSwitcher
-          versions={data.versions}
-          defaultVersion={data.versions[0]}
-        />
+        <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        {/* We create a SidebarGroup for each parent. */}
-        {data.navMain.map((item) => (
-          <SidebarGroup key={item.title}>
-            <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {item.items.map((item) => (
-                  <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild isActive={item.isActive}>
-                      <a href={item.url}>{item.title}</a>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        ))}
+        <NavMain items={data.navMain} />
+        <NavProjects projects={data.projects} />
       </SidebarContent>
+      <SidebarFooter>
+        <NavUser user={data.user} />
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   );
