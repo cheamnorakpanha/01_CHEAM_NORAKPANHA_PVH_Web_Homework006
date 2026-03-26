@@ -1,5 +1,11 @@
-import Image from "next/image";
+import CustomerHomepageCardComponent from "@/components/CustomerHomepageCardComponent";
+import ProductHomepageCardComponent from "@/components/ProductHomepageCardComponent";
 
 export default function Home() {
-  return <div>Hello</div>;
+  return (
+    <div className="flex justify-center items-center w-full m-10 gap-8">
+      <ProductHomepageCardComponent />
+      <CustomerHomepageCardComponent />
+    </div>
+  );
 }
