@@ -11,19 +11,12 @@ export default async function Page() {
   const customers = Array.isArray(data.payload) ? data.payload : [];
 
   return (
-    <div className="min-h-screen bg-slate-100 px-6 py-10">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen px-6 py-10">
+      <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-xl font-semibold text-gray-800">
+          <h1 className="text-2xl font-semibold text-gray-800">
             List of All Customer
           </h1>
-          <div className="relative">
-            <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
-            <input
-              placeholder="Search customers..."
-              className="pl-9 pr-4 py-2 w-64 rounded-lg border border-gray-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
         </div>
 
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
