@@ -5,6 +5,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Navbar } from "./_componenet/NavBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,10 @@ export default function RootLayout({ children }) {
           <SidebarProvider>
             <AppSidebar />
             <SidebarTrigger />
-            {children}
+            <main className="flex-1 bg-slate-50">
+              <Navbar />
+              {children}
+            </main>
           </SidebarProvider>
         </TooltipProvider>
       </body>
