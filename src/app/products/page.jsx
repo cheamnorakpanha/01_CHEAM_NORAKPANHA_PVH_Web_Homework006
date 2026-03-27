@@ -1,16 +1,16 @@
 import Link from "next/link";
 import React from "react";
-import notfound from "../notfound";
+import { notFound } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
 
-export default async function page() {
+export default async function Page() {
   const res = await fetch(
     "https://homework-api.noevchanmakara.site/api/v1/products",
     { next: { revalidate: 10 } },
   );
 
   if (!res.ok) {
-    return notfound();
+    return notFound();
   }
 
   const data = await res.json();
