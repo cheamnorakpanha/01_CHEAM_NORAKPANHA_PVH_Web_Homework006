@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 export default function CustomerHomepageCardComponent({ customer }) {
   console.log(customer.payload.length);
 
+  const image = "/img/macbook-pro.png"
+
   return (
     <div className="group relative w-full max-w-md h-175 bg-linear-to-br from-amber-50 to-white rounded-[2.5rem] p-8 flex flex-col justify-between overflow-hidden border border-amber-100 shadow-[0_20px_50px_rgba(245,158,11,0.05)] transition-all duration-500 hover:shadow-[0_40px_80px_rgba(245,158,11,0.1)] hover:-translate-y-2">
       <div className="absolute -top-20 -right-20 w-64 h-64 bg-amber-200/30 rounded-full blur-3xl group-hover:bg-amber-300/40 transition-colors duration-700" />
@@ -27,8 +29,7 @@ export default function CustomerHomepageCardComponent({ customer }) {
       </div>
       <div className="relative z-10 flex items-center justify-center py-4 transition-transform duration-700 group-hover:scale-110">
         <Image
-          src="/img/macbook-pro.jpg"
-          // src={Image}
+          src={image}
           width={400}
           height={300}
           alt="customer illustration"

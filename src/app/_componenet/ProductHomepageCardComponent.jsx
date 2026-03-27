@@ -6,6 +6,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export default function ProductHomepageCardComponent() {
+  const image = "/img/macbook-pro.png";
+
   return (
     <div className="group relative w-full max-w-md h-175 bg-linear-to-br from-pink-50 to-white rounded-[2rem] p-8 flex flex-col justify-between overflow-hidden border border-pink-100 shadow-[0_20px_50px_rgba(236,72,153,0.05)] transition-all duration-500 hover:shadow-[0_40px_80px_rgba(236,72,153,0.1)] hover:-translate-y-2">
       <div className="absolute -top-20 -right-20 w-64 h-64 bg-pink-200/30 rounded-full blur-3xl group-hover:bg-pink-300/40 transition-colors duration-700" />
@@ -25,7 +27,7 @@ export default function ProductHomepageCardComponent() {
       </div>
       <div className="relative z-10 flex items-center justify-center py-4 transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-3">
         <Image
-          src="/img/macbook-pro.jpg"
+          src={image}
           width={400}
           height={300}
           alt="Macbook Pro M5"
