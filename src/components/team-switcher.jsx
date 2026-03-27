@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 
 import {
   DropdownMenu,
@@ -29,18 +30,21 @@ export function TeamSwitcher({ teams }) {
               size="lg"
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
-              <div className="flex aspect-square size-8 items-center justify-center rounded-lg text-sidebar-primary-foreground bg-cyan-200">
-                {activeTeam.logo}
-              </div>
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-extrabold">
-                  <span className="text-cyan-500">{first}</span>{" "}
-                  <span className="text-blue-700">{last}</span>
-                </span>
-                <span className="truncate text-xs font-extrabold text-gray-600">
-                  {activeTeam.plan}
-                </span>
-              </div>
+              <Link href="/" className="flex items-center gap-2 w-full">
+                <div className="flex aspect-square size-8 items-center justify-center rounded-lg text-sidebar-primary-foreground bg-cyan-200">
+                  {activeTeam.logo}
+                </div>
+
+                <div className="grid flex-1 text-left text-sm leading-tight">
+                  <span className="truncate font-extrabold">
+                    <span className="text-cyan-500">{first}</span>{" "}
+                    <span className="text-blue-700">{last}</span>
+                  </span>
+                  <span className="truncate text-xs font-extrabold text-gray-600">
+                    {activeTeam.plan}
+                  </span>
+                </div>
+              </Link>
             </SidebarMenuButton>
           </DropdownMenuTrigger>
         </DropdownMenu>
