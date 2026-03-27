@@ -44,7 +44,7 @@ export default function CustomerHomepageCardComponent({ customer }) {
           </span>
           <span className="text-2xl font-black text-slate-800">{customer.payload.length}</span>
         </div>
-        <Link href={"/"}>
+        <Link href={"/customers"}>
           <Button className="group/btn bg-amber-300 hover:bg-amber-500 text-white h-14 px-8 rounded-2xl font-bold shadow-lg shadow-amber-200 transition-all active:scale-95 flex gap-2">
             View All
             <ArrowRight className="size-4 transition-transform group-hover/btn:translate-x-1" />

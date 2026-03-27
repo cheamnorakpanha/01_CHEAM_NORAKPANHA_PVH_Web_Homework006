@@ -42,17 +42,17 @@ const data = {
     },
     {
       title: "Customers",
-      url: "#",
+      url: "/customers",
       icon: <User />,
     },
     {
       title: "Categories",
-      url: "#",
+      url: "/categories",
       icon: <BookOpenIcon />,
     },
     {
       title: "Settings",
-      url: "#",
+      url: "/settings",
       icon: <Settings />,
     },
   ],
