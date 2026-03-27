@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  Collapsible,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import { Collapsible, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -15,7 +12,7 @@ import {
 export function NavMain({ items }) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Main Menu</SidebarGroupLabel>
+      <SidebarGroupLabel className={"font-bold"}>Main Menu</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible
@@ -27,8 +24,8 @@ export function NavMain({ items }) {
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton tooltip={item.title}>
-                  {item.icon}
-                  <span>{item.title}</span>
+                  <span className="text-cyan-300">{item.icon}</span>
+                  <span className="font-bold text-gray-600">{item.title}</span>
                 </SidebarMenuButton>
               </CollapsibleTrigger>
             </SidebarMenuItem>
