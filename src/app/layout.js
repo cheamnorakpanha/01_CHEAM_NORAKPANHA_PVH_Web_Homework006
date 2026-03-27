@@ -5,7 +5,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Navbar } from "./_componenet/NavBar";
+import { Navbar } from "../components/NavBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

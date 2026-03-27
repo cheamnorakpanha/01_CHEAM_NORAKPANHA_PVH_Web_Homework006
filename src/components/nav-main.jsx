@@ -6,13 +6,16 @@ import {
   SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem,
+  SidebarMenuItem
 } from "@/components/ui/sidebar";
+import Link from "next/link";
 
 export function NavMain({ items }) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel className={"font-bold"}>Main Menu</SidebarGroupLabel>
+      <SidebarGroupLabel className="font-bold">
+        Main Menu
+      </SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible
@@ -23,9 +26,19 @@ export function NavMain({ items }) {
           >
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
-                <SidebarMenuButton tooltip={item.title}>
-                  <span className="text-cyan-300">{item.icon}</span>
-                  <span className="font-bold text-gray-600">{item.title}</span>
+                <SidebarMenuButton
+                  asChild
+                  tooltip={item.title}
+                  className="hover:bg-cyan-100 py-5"
+                >
+                  <Link href={item.url}>
+                    <span className="text-cyan-300">
+                      {item.icon}
+                    </span>
+                    <span className="font-bold text-gray-600 hover:text-black">
+                      {item.title}
+                    </span>
+                  </Link>
                 </SidebarMenuButton>
               </CollapsibleTrigger>
             </SidebarMenuItem>

@@ -1,5 +1,5 @@
-import CustomerHomepageCardComponent from "@/app/_componenet/CustomerHomepageCardComponent";
-import ProductHomepageCardComponent from "@/app/_componenet/ProductHomepageCardComponent";
+import CustomerHomepageCardComponent from "@/components/CustomerHomepageCardComponent";
+import ProductHomepageCardComponent from "@/components/ProductHomepageCardComponent";
 
 export default async function Home() {
   const response = await fetch(
